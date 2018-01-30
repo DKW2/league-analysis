@@ -5,6 +5,6 @@
 1. organize ourselves
 2. work with riot games api
 3. gather data
-  *create a working code to sort calls from API
-  *gather a list of summoner names
+  * create a working code to sort calls from API
+  * gather a list of summoner names
 4. create visuals of data 
