@@ -8,3 +8,8 @@
   * create a working code to sort calls from API
   * gather a list of summoner names
 4. create visuals of data 
+ * possible ideas:
+   + histogram of preferred position over ranks
+   + average mastery of champions
+   + progession through ranks
+
