@@ -11,3 +11,5 @@
 ## 2/9/2018
 * Developed a helper function to create smaller more specific dataframes (ryan)
 * Plotted and began analysis of games player per year of each team by region (ryan)
+## 2/23/2018
+* Learned and practiced using Git and managed to push visualized data set notebook into master branch (Derek)
