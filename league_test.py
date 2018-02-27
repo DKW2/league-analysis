@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from collections import Counter
 
 def tournaments():
-	matches = pd.read_csv("LeagueofLegends.csv")
+	matches = pd.read_csv(".\data\LeagueofLegends.csv")
 	while(True):
 		print("Here are all of the keys: ")
 		count = 0
