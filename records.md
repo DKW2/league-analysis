@@ -14,4 +14,6 @@
 ## 2/23/2018
 * Learned and practiced using Git and managed to push visualized data set notebook into master branch (Derek)
 ## 2/26/2018
-* Designed code to calculate and display win percentage for a region in a given time
+* Designed code to calculate and display win percentage for a region in a given time (Ryan)
+## 3/2/2018
+* Designed a larger more flexible sorting code that quickly returns a specifiac subset of the main Dataframe (Ryan)
