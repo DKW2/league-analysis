@@ -15,6 +15,7 @@
 * Learned and practiced using Git and managed to push visualized data set notebook into master branch (Derek)
 ## 2/26/2018
 * Designed code to calculate and display win percentage for a region in a given time (Ryan)
+* Began creating plots that display year differences of certain variables in LoL matches such as Champion picks and different Leagues. (Derek)
 ## 3/2/2018
 * Designed a larger more flexible sorting code that quickly returns a specifiac subset of the main Dataframe (Ryan)
-* Began creating plots that display year differences of certain variables in LoL matches such as Champion picks and different Leagues. Created notebook that portrays current results. Right now, only analyzed Leagues vs. Years and Middle Champion vs. Years (Derek)
+* Worked more on creating plots of year difference. Created notebook that portrays current results. Right now, only analyzed Leagues vs. Years and Middle Champion vs. Years (Derek)
