@@ -17,3 +17,4 @@
 * Designed code to calculate and display win percentage for a region in a given time (Ryan)
 ## 3/2/2018
 * Designed a larger more flexible sorting code that quickly returns a specifiac subset of the main Dataframe (Ryan)
+* Began creating plots that display year differences of certain variables in LoL matches such as Champion picks and different Leagues (Derek)
