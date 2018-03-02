@@ -15,8 +15,14 @@ def pieChart(data, key):
 	plt.show() 
 
 #Finds the column of the DataFrame year and returns it as a list
-def columnFinder(year, column):
-	data = year[column]
+def columnFinder(year, column, both):
+	if both:
+		#data = year["red" + column]
+		#data.append(year["blue" + column], ignore_index = True)
+		data = pd.concat([year["red" + column], year["blue" + column]], ignore_index = True)
+	else:
+		data = year[column]
+	print(data)
 	return data.values.tolist()
 
 #Seperates the DataFrame matches into a list of DataFrames of each year
@@ -33,19 +39,31 @@ def portrayYears():
 	listData = columnFinder(years[1], "League")
 	pieChart(listData, "Something")
 
-def leagueDifference(matches):
-	leagues = []
+# Creates a line graph of the count of each <column> through the years
+def leagueDifference(years, column, xlabel, ylabel, title, tooMuch = False, min = 0, both = False):
 	leagueCount = []
 	names = []
-	year = [2014,2015,2016,2017,2018]
+	leagueCount, names = getNames(years, leagueCount, names, column, both)
+	getCountAndPlot(names, leagueCount, xlabel, ylabel, title, tooMuch, min)
+
+#Returns a list of 5 dictionaries for each year that contains
+#the count of each <column> and a list of the names of each <column>
+def getNames(years, leagueCount, names, column, both):
+	leagues = []
 	for i in years:
-		leagues.append(columnFinder(i, "League"))
+		leagues.append(columnFinder(i, column, both))
 	for i in leagues:
 		leagueCount.append(dict(Counter(i)))
 	for i in range(0, 5):
 		for key in leagueCount[i].keys():
 			if key not in names:
 				names.append(key)
+	return leagueCount, names
+
+#Gets the count of each league seperately and graphs them
+def getCountAndPlot(names, leagueCount, xlabel, ylabel, title, tooMuch, min):
+	year = [2014,2015,2016,2017,2018]
+	tiny = False
 	for key in names:
 		count = []
 		for i in range(0,5):
@@ -53,24 +71,27 @@ def leagueDifference(matches):
 				count.append(0)
 			else:
 				count.append(leagueCount[i][key])
-		plt.plot(year, count, label = key)
-#Almost there?
+		#print(max(count))
+		if(tooMuch and max(count) < min):
+			tiny = True
+		if not tiny:
+			plt.plot(year, count, label = key)
+		tiny = False
+	plotData(xlabel, ylabel, title)
 
-	#for i in names:
-	#	plt.plot(year, )
-	#rint(names)
+#Plots the data with the given parameters
+def plotData(xlabel, ylabel, title):
 	plt.legend(loc= 'best')
-	plt.xlabel("Year")
-	plt.ylabel("Games")
-	plt.title("# of League games vs. Year")
+	plt.xlabel(xlabel)
+	plt.ylabel(ylabel)
+	plt.title(title)
 	plt.show()
-	#graphLeagueDifference(leagueCount)
-
-def graphLeagueDifference(leagueCount):
-	print("hi")
 
 
 if __name__ == "__main__":
 	matches = pd.read_csv(".\data\LeagueofLegends.csv")
 	years = seperateToYears(matches)
-	leagueDifference(matches)
+	leagueDifference(years, "League", "Year", "Games", "# of League games vs. Year")
+	leagueDifference(years, "MiddleChamp", 
+		             "Year", "Games", "# of appearances of Middle Lane Champion vs. Year"
+		             , True, 200, True)
