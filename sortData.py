@@ -1,16 +1,18 @@
 import pandas as pd
 import matplotlib.pyplot as plt    
-bans=pd.read_csv("bans.csv", index_col=1)
 league=pd.read_csv("LeagueofLegends.csv")
 
-# input a dataframe and sort paramater, returns a new dataframe
+# Helper function, sorts data in a df
+# Input a dataframe and sort paramater, returns a new dataframe with only entries with that value
 def sortData(yourDF, columnName, valueInColumn):  
     searchCriteria=yourDF[columnName]==valueInColumn
     newDF=yourDF.loc[searchCriteria]
     return(newDF)
 
-#Input 'all' if you don't want to sort by paramater, or 0 for year
-#output sorted DF
+# # only sorts for dataframes
+# Input a dataframe and all the values you would like it to sort by
+# Input 'all' if you don't want to sort by paramater, or 0 for year
+# Output sorted DF by all paramaters
 def powerSort(DF, leagueName='all', year=0, season='all', typeGame='all', teamTag='all'):
         initialDF=DF
         if leagueName!='all':
