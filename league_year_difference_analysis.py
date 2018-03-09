@@ -95,3 +95,6 @@ if __name__ == "__main__":
 	leagueDifference(years, "MiddleChamp", 
 		             "Year", "Games", "# of appearances of Middle Lane Champion vs. Year"
 		             , True, 200, True)
+	leagueDifference(years, "TopChamp", "Year", "Games", 
+					"# of appearances of Middle Lane Champion vs. Year", 
+					True, 200, True)
