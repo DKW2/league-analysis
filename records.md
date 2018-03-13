@@ -22,3 +22,5 @@
 * Designed a larger more flexible sorting code that quickly returns a specific subset of the main data frame (Ryan)
 * Worked more on creating plots of year difference. Created notebook that portrays current results. Right now, only analyzed Leagues vs. Years and Middle Champion vs. Years (Derek)
 * Expanded regression data with the addition of helper functions to include all lanes from both teams, and added lane effect to the model. For next time, turn champions and lanes into personal dummy variables to extract specific effects. (Julian)
+## 3/12/2018
+* Added graphs for each champion role in games. In addition, added analysis to each graph. (Derek)
