@@ -39,7 +39,22 @@ def portrayYears():
 	pieChart(listData, "Something")
 
 # Creates a line graph of the count of each <column> through the years
-def leagueDifference(years, column, xlabel, ylabel, title, tooMuch = False, min = 0, both = False):
+# Main method to create linear graphs for time differences
+# Accepts 8 Parameters: years (list of dataframes of each year), 
+#						column (which column the user would like to compare through the years)
+#						xlabel (the label of the x-axis)
+#						ylabel (the label of the y-axis)
+#						title (the title of the graph)
+#						tooMuch (Used only when there are too many different data points that they 
+#								will make the graph unreadable)
+#						min (The minimum # of counts that a data point can have to be posted on the graph.
+#							 Only used when tooMuch = True)
+#						both (Determines whether to use both teams data or just the column stated.
+#							  Disclaimer: when using both, the column name needs to be the string after
+#							  the team name. For example, redADCChamp would just be ADCChamp if using both
+#							  Otherwise, if you would like to look ONLY at ADC champions from the red team,
+#							  enter redADCChamp as the column name and make both equal to false)
+def leagueDifference(years, column, xlabel, ylabel, title, tooMuch = False, min = 200, both = False):
 	leagueCount = []
 	names = []
 	leagueCount, names = getNames(years, leagueCount, names, column, both)
