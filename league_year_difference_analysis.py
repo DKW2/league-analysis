@@ -40,7 +40,9 @@ def portrayYears():
 
 # Creates a line graph of the count of each <column> through the years
 # Main method to create linear graphs for time differences
-# Accepts 8 Parameters: years (list of dataframes of each year), 
+#
+# Accepts 8 Parameters: 
+#						years (list of dataframes of each year), 
 #						column (which column the user would like to compare through the years)
 #						xlabel (the label of the x-axis)
 #						ylabel (the label of the y-axis)
@@ -54,6 +56,7 @@ def portrayYears():
 #							  the team name. For example, redADCChamp would just be ADCChamp if using both
 #							  Otherwise, if you would like to look ONLY at ADC champions from the red team,
 #							  enter redADCChamp as the column name and make both equal to false)
+
 def leagueDifference(years, column, xlabel, ylabel, title, tooMuch = False, min = 200, both = False):
 	leagueCount = []
 	names = []
