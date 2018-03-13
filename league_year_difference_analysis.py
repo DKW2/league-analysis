@@ -22,7 +22,6 @@ def columnFinder(year, column, both):
 		data = pd.concat([year["red" + column], year["blue" + column]], ignore_index = True)
 	else:
 		data = year[column]
-	print(data)
 	return data.values.tolist()
 
 #Seperates the DataFrame matches into a list of DataFrames of each year
@@ -92,9 +91,18 @@ if __name__ == "__main__":
 	matches = pd.read_csv(".\data\LeagueofLegends.csv")
 	years = seperateToYears(matches)
 	leagueDifference(years, "League", "Year", "Games", "# of League games vs. Year")
-	leagueDifference(years, "MiddleChamp", 
-		             "Year", "Games", "# of appearances of Middle Lane Champion vs. Year"
-		             , True, 200, True)
+	leagueDifference(years, "MiddleChamp", "Year", "Games", 
+					"# of appearances of Middle Lane Champion vs. Year",
+		            True, 200, True)
 	leagueDifference(years, "TopChamp", "Year", "Games", 
-					"# of appearances of Middle Lane Champion vs. Year", 
+					"# of appearances of Top Lane Champion vs. Year", 
+					True, 200, True)
+	leagueDifference(years, "ADCChamp", "Year", "Games",
+					"# of appearances of ADC Champions vs. Year",
+					True, 200, True)
+	leagueDifference(years, "SupportChamp", "Year", "Games",
+					"# of appearances of Support Champions vs. Year",
+					True, 200, True)
+	leagueDifference(years, "JungleChamp", "Year", "Games",
+					"# of appearances of Jungler Champions vs. Year",
 					True, 200, True)
