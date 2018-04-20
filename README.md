@@ -17,3 +17,4 @@
    + average mastery of champions
    + progession through ranks
 
+# when analysis results and drawing conclusions about the LCS, bear in mind the data set we are using, most likely it is incomplete with small errors. Any conclusions using a large part of this dataset with most likely not be affected by these errors. 
