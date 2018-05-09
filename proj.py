@@ -13,10 +13,9 @@ import time
 from sklearn.linear_model import LinearRegression
 
 
+### Options and File Dependencies ###
+
 np.set_printoptions(threshold=np.nan)
-
-
-
 INFO = 'C:/users/julian/school/programming/projects/league-analysis/data/LeagueofLegends.csv'
 LOL = pd.read_csv(INFO)
 
@@ -201,6 +200,10 @@ Total = pd.concat([Total.drop(['Lane','Champ','OppChamp'], axis=1), LaneChange, 
 # redTopChamp = LOL['redTopChamp']
 # print(map(int, LOL['goldblueTop'].split(',')))
 # type(top_gold.iloc[1])
+
+
+
+
 
 
 
