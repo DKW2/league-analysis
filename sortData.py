@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt    
-league=pd.read_csv("LeagueofLegends.csv")
+
 
 # Helper function, sorts data in a df
 # Input a dataframe and sort paramater, returns a new dataframe with only entries with that value

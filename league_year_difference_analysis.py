@@ -5,6 +5,7 @@ import pandas as pd
 import csv
 import time
 import matplotlib.pyplot as plt
+import ast
 from collections import Counter
 
 #Creates a pie chart with the data given and titles the chart with the variable key
@@ -47,6 +48,7 @@ def portrayYears():
 #						xlabel (the label of the x-axis)
 #						ylabel (the label of the y-axis)
 #						title (the title of the graph)
+#						proportion (Used when you want to use proportions instead of count)
 #						tooMuch (Used only when there are too many different data points that they 
 #								will make the graph unreadable)
 #						min (The minimum # of counts that a data point can have to be posted on the graph.
@@ -57,25 +59,45 @@ def portrayYears():
 #							  Otherwise, if you would like to look ONLY at ADC champions from the red team,
 #							  enter redADCChamp as the column name and make both equal to false)
 
-def leagueDifference(years, column, xlabel, ylabel, title, tooMuch = False, min = 200, both = False):
+def leagueDifference(years, column, xlabel, ylabel, title, proportion = False, tooMuch = False, min = 200, both = False):
 	leagueCount = []
 	names = []
-	leagueCount, names = getNames(years, leagueCount, names, column, both)
+	leagueCount, names = getNames(years, leagueCount, names, column, both, proportion)
 	getCountAndPlot(names, leagueCount, xlabel, ylabel, title, tooMuch, min)
 
 #Returns a list of 5 dictionaries for each year that contains
 #the count of each <column> and a list of the names of each <column>
-def getNames(years, leagueCount, names, column, both):
+def getNames(years, leagueCount, names, column, both, relative):
 	leagues = []
 	for i in years:
 		leagues.append(columnFinder(i, column, both))
-	for i in leagues:
-		leagueCount.append(dict(Counter(i)))
+	for i in range(0, 5):
+		temp = []
+		for j in range(0, len(leagues[i])):
+			for k in ast.literal_eval(leagues[i][j]):
+				temp.append(k)
+		leagues[i] = temp
+	proportion = getProportions(years)
+	#print(leagues)
+	if relative:
+		for i in range(0,5):
+			test = dict(Counter(leagues[i]))
+			for key in test.keys():
+				test[key] = test[key]/proportion[i] #Manipulated!!! *********
+			print(test)
+			leagueCount.append(test)
 	for i in range(0, 5):
 		for key in leagueCount[i].keys():
 			if key not in names:
 				names.append(key)
 	return leagueCount, names
+
+#Returns a list of the proportions of each year
+def getProportions(years):
+	proportion = []
+	for i in range(0,5):
+		proportion.append(len(years[i].index))
+	return proportion
 
 #Gets the count of each league seperately and graphs them
 def getCountAndPlot(names, leagueCount, xlabel, ylabel, title, tooMuch, min):
@@ -110,17 +132,20 @@ if __name__ == "__main__":
 	years = seperateToYears(matches)
 	leagueDifference(years, "League", "Year", "Games", "# of League games vs. Year")
 	leagueDifference(years, "MiddleChamp", "Year", "Games", 
-					"# of appearances of Middle Lane Champion vs. Year",
+					"# of appearances of Middle Lane Champion vs. Year", True,
 		            True, 200, True)
 	leagueDifference(years, "TopChamp", "Year", "Games", 
-					"# of appearances of Top Lane Champion vs. Year", 
+					"# of appearances of Top Lane Champion vs. Year", True,
 					True, 200, True)
 	leagueDifference(years, "ADCChamp", "Year", "Games",
-					"# of appearances of ADC Champions vs. Year",
+					"# of appearances of ADC Champions vs. Year", True,
 					True, 200, True)
 	leagueDifference(years, "SupportChamp", "Year", "Games",
-					"# of appearances of Support Champions vs. Year",
+					"# of appearances of Support Champions vs. Year", True,
 					True, 200, True)
 	leagueDifference(years, "JungleChamp", "Year", "Games",
-					"# of appearances of Jungler Champions vs. Year",
+					"# of appearances of Jungler Champions vs. Year", True,
 					True, 200, True)
+	leagueDifference(years, "blueBans", "Year", "Games",
+					 "# of champions banned in games vs. Year", True,
+					 True, 0.15, False)
