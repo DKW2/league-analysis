@@ -29,3 +29,6 @@
 =======
 * Added graphs for each champion role in games. In addition, added analysis to each graph. Began comparing Bans of teams, may use averages instead?(Derek)
 >>>>>>> 014e0065b8be5483bb4908a50d40620c34b35bd1
+
+## 5/10/2018
+* created a bar graph display for player champion pool (Ryan)
