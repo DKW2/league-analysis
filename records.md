@@ -9,7 +9,19 @@
 * Discovered a data set of +7000 tournaments from 2015 to now
 * Created a prototype program to access each column in the data set and visualize it (Derek)
 ## 2/9/2018
-* Developed a helper function to create smaller more specific dataframes (ryan)
-* Plotted and began analysis of games player per year of each team by region (ryan)
+* Developed a helper function to create smaller more specific data frames (Ryan)
+* Plotted and began analysis of games player per year of each team by region (Ryan)
+* Began working on linear regression to predict gold income in the top lane. (Julian)
 ## 2/23/2018
 * Learned and practiced using Git and managed to push visualized data set notebook into master branch (Derek)
+## 2/26/2018
+* Designed code to calculate and display win percentage for a region in a given time (Ryan)
+* Began creating plots that display year differences of certain variables in LoL matches such as Champion picks and different Leagues. (Derek)
+* Created full data frame with gold and champions for top lane, and ran regression. (Julian)
+## 3/2/2018
+* Designed a larger more flexible sorting code that quickly returns a specific subset of the main data frame (Ryan)
+* Worked more on creating plots of year difference. Created notebook that portrays current results. Right now, only analyzed Leagues vs. Years and Middle Champion vs. Years (Derek)
+* Expanded regression data with the addition of helper functions to include all lanes from both teams, and added lane effect to the model. For next time, turn champions and lanes into personal dummy variables to extract specific effects. (Julian)
+## 3/12/2018
+* Added graphs for each champion role in games. In addition, added analysis to each graph. (Derek)
+* created function to find win rate of most played champions in a certain lane. (Ryan)
