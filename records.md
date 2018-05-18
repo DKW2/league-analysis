@@ -23,10 +23,8 @@
 * Worked more on creating plots of year difference. Created notebook that portrays current results. Right now, only analyzed Leagues vs. Years and Middle Champion vs. Years (Derek)
 * Expanded regression data with the addition of helper functions to include all lanes from both teams, and added lane effect to the model. For next time, turn champions and lanes into personal dummy variables to extract specific effects. (Julian)
 ## 3/12/2018
-<<<<<<< HEAD
 * Added graphs for each champion role in games. In addition, added analysis to each graph. (Derek)
 * created function to find win rate of most played champions in a certain lane. (Ryan)
-=======
 * Added graphs for each champion role in games. In addition, added analysis to each graph. Began comparing Bans of teams, may use averages instead?(Derek)
 
 ## 5/10/2018
