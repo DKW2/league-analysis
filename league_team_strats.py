@@ -30,23 +30,23 @@ def firstObjective(indexValues, team, teamName, objectiveName):
 		objective = ast.literal_eval(team.at[indexValues[i], color + objectiveName]) #Retrieve list of a list of rDragons at indexValues[i], list of rDragons is [time, type]
 		negObjective = ast.literal_eval(team.at[indexValues[i], negColor + objectiveName])
 		if objective:
-			if(team.at[indexValues[i], color + "Result"] == 1):
-				time.append(findFirst(objective))
-			else:
-				negTime.append(findFirst(objective))
-			# if negObjective:
-			# 	if(findFirst(objective) < findFirst(negObjective)):
-			# 		time.append(findFirst(objective))
-			# 	else:
-			# 		negTime.append(findFirst(objective))
-			# else:
+			# if(team.at[indexValues[i], color + "Result"] == 1):
 			# 	time.append(findFirst(objective))
+			# else:
+			# 	negTime.append(findFirst(objective))
+			if negObjective:
+				if(findFirst(objective) < findFirst(negObjective)):
+					time.append(findFirst(objective))
+				else:
+					negTime.append(findFirst(objective))
+			else:
+				time.append(findFirst(objective))
 
 	plt.hist(time, bins = 25, edgecolor = "black", range = (0, 50), color = "blue")
 	plt.hist(negTime, bins = 25, edgecolor = "black", color = "red", range = (0, 50), alpha = 0.5)
 	plt.xlabel("Time in minutes")
 	plt.ylabel("# of Games")
-	plt.title("All first " + objectiveName + " kills for " + teamName + " compared with wins and losses")
+	plt.title("All first and lost " + objectiveName + " kills for " + teamName) #+ " compared with wins and losses")
 
 	plt.show()
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 	matches = pd.read_csv(".\data\LeagueofLegends.csv")
 	for i in {"C9", "TSM", "IMT"}:
 		team, indexValues = compareTeams(matches, i)
-		firstObjective(indexValues, team, i, "Dragons")
+		firstObjective(indexValues, team, i, "Barons")
 	
 		
 	
