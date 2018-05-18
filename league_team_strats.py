@@ -10,22 +10,44 @@ import matplotlib.pyplot as plt
 import sortData
 import ast
 
-def firstDragon(indexValues, team, teamName):
-	first = []
-	timeDragons = []
+def findFirst(objective):
+	x = objective[0][0]
+	for i in objective:
+		if i[0] < x:
+			x = i[0]
+	return x
+
+def firstObjective(indexValues, team, teamName, objectiveName):
+	time = []
+	negTime = []
 	for i in range(0, len(indexValues)):
 		if(team.at[indexValues[i], "blueTeamTag"] == teamName): #Checks whether the team is blue or red
 			color = "b"
+			negColor = "r"
 		else:
 			color = "r"
-		dragon = ast.literal_eval(team.at[indexValues[i], color + "Dragons"]) #Retrieve list of a list of rDragons at indexValues[i], list of rDragons is [time, type]
-		if dragon:
-			first.append(dragon[0])
-			timeDragons.append(dragon[0][0])
-	plt.hist(timeDragons, bins = 20, edgecolor = "black")
+			negColor = "b"
+		objective = ast.literal_eval(team.at[indexValues[i], color + objectiveName]) #Retrieve list of a list of rDragons at indexValues[i], list of rDragons is [time, type]
+		negObjective = ast.literal_eval(team.at[indexValues[i], negColor + objectiveName])
+		if objective:
+			if(team.at[indexValues[i], color + "Result"] == 1):
+				time.append(findFirst(objective))
+			else:
+				negTime.append(findFirst(objective))
+			# if negObjective:
+			# 	if(findFirst(objective) < findFirst(negObjective)):
+			# 		time.append(findFirst(objective))
+			# 	else:
+			# 		negTime.append(findFirst(objective))
+			# else:
+			# 	time.append(findFirst(objective))
+
+	plt.hist(time, bins = 25, edgecolor = "black", range = (0, 50), color = "blue")
+	plt.hist(negTime, bins = 25, edgecolor = "black", color = "red", range = (0, 50), alpha = 0.5)
 	plt.xlabel("Time in minutes")
 	plt.ylabel("# of Games")
-	plt.title("All first dragon kills for " + teamName)
+	plt.title("All first " + objectiveName + " kills for " + teamName + " compared with wins and losses")
+
 	plt.show()
 
 	# types = seperateTypes(first)
@@ -58,7 +80,7 @@ if __name__ == "__main__":
 	matches = pd.read_csv(".\data\LeagueofLegends.csv")
 	for i in {"C9", "TSM", "IMT"}:
 		team, indexValues = compareTeams(matches, i)
-		firstDragon(indexValues, team, i)
+		firstObjective(indexValues, team, i, "Dragons")
 	
 		
 	
