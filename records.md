@@ -28,7 +28,10 @@
 * created function to find win rate of most played champions in a certain lane. (Ryan)
 =======
 * Added graphs for each champion role in games. In addition, added analysis to each graph. Began comparing Bans of teams, may use averages instead?(Derek)
->>>>>>> 014e0065b8be5483bb4908a50d40620c34b35bd1
 
 ## 5/10/2018
 * created a bar graph display for player champion pool (Ryan)
+* Began finding differences between TSM, C9, and IMT for first objectives such as baron, dragon, and towers. Made some graphs and semi-finished the methods (Derek)
+
+## 5/17/2018
+* Expanded plots of first dragon kills. Created a notebook for the analysis of dragons as a prototype. Began working on analyzing towers and baron. Baron doesn't seem to have any significance other than win rate. (Derek)
