@@ -13,7 +13,7 @@ import ast
 def findFirst(objective):
 	x = objective[0][0]
 	for i in objective:
-		if i[0] < x:
+		if (i[0] < x):
 			x = i[0]
 	return x
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 	matches = pd.read_csv(".\data\LeagueofLegends.csv")
 	for i in {"C9", "TSM", "IMT"}:
 		team, indexValues = compareTeams(matches, i)
-		firstObjective(indexValues, team, i, "Towers")
+		firstObjective(indexValues, team, i, "Towers") #There might be an error? Check number of losses and wins and see if they're consistant
 	
 		
 	
