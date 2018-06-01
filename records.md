@@ -34,3 +34,6 @@
 ## 5/17/2018
 * Expanded plots of first dragon kills. Created a notebook for the analysis of dragons as a prototype. Began working on analyzing towers and baron. Baron doesn't seem to have any significance other than win rate. (Derek)
 * cleaned up and populated bar graphs of NALCS champ pool (Ryan)
+
+## 5/31/2018
+* Began finding the order of the most frequent tower picks for the 3 teams. For example, the most taken first tower is Bot while the most taken late game tower is Mid. Finished writing code that looks through and prints everything. Need to put results in notebook. (Derek)
